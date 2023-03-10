@@ -1,6 +1,8 @@
 package co.edu.unbosque.view;
 
-import co.edu.unbosque.view.Pokedex;
+import co.edu.unbosque.view.*;
+import co.edu.unbosque.model.*;
+import co.edu.unbosque.controller.*;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -26,7 +28,7 @@ public class PaneldeRegistrar extends JFrame {
 	private Image imagen1, imagen4, imagen3, imagen5, imagen6;
 	private Icon icon, icon3, icon6;
 
-	pokedex pokedexInstance = new pokedex();
+	Pokedex pokedexInstance = new Pokedex();
 
 	private int hex(String color_hex) {
 		return Integer.parseInt(color_hex, 16);

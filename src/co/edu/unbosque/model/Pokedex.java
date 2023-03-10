@@ -7,7 +7,28 @@ public class Pokedex {
     private List<Pokemon> pokemones;
 
     public void registrarPokemon(String nombre, String tipo, int ataque, int defensa) {
-        Pokemon nuevoPokemon = new Pokemon(nombre, tipo, ataque, defensa);
+        Pokemon nuevoPokemon;
+        switch (tipo) {
+            case "Agua":
+                nuevoPokemon = new Agua(nombre, tipo, null, ataque, defensa, tipo, false);
+                break;
+            case "Tierra":
+                nuevoPokemon = new Tierra(nombre, tipo, ataque, defensa, tipo);
+                break;
+            case "Fuego":
+                nuevoPokemon = new Fuego(nombre, tipo, null, ataque, defensa, tipo, false);
+                break;
+            case "Eléctrico":
+                nuevoPokemon = new Electrico(nombre, tipo, null, ataque, defensa, tipo, false);
+                break;
+            case "Planta":
+                nuevoPokemon = new Planta(nombre, tipo, null, ataque, defensa, tipo, false);
+                break;
+            default:
+                // Si el tipo no es válido, no se crea ningún Pokemon
+                System.out.println("Error: tipo de Pokemon inválido.");
+                return;
+        }
         pokemones.add(nuevoPokemon);
         System.out.println("Pokemon registrado exitosamente.");
     }
@@ -32,9 +53,9 @@ public class Pokedex {
     }
 
     public boolean eliminarPokemon(String nombre) {
-        for (Pokemon pokemon : pokemonList) {
+        for (Pokemon pokemon : pokemones) {
             if (pokemon.getNombre().equalsIgnoreCase(nombre)) {
-                pokemonList.remove(pokemon);
+                pokemones.remove(pokemon);
                 return true;
             }
         }
